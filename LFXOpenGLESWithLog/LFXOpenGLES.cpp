@@ -1452,9 +1452,9 @@ VertexAttrib4fv(const string &label, GLuint indx, const GLfloat *values) const {
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib4f(const string &label, GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const {
-    glVertexAttrib4f(indx, x, y, z, w);
+//    glVertexAttrib4f(indx, x, y, z, w);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib4f(%s: %d, x, y, z, w)", label.c_str(), indx, x, y, z, w)
     }
     return *this;
 }
@@ -1470,18 +1470,9 @@ VertexAttrib3fv(const string &label, GLuint indx, const GLfloat *values) const {
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib3f(const string &label, GLuint indx, GLfloat x, GLfloat y, GLfloat z) const {
-    glVertexAttrib3f(indx, x, y, z);
+//    glVertexAttrib3f(indx, x, y, z);
     if (enableVerboseOutput) {
-        LogDebug("")
-    }
-    return *this;
-}
-
-const LFXOpenGLES &LFXOpenGLES::
-VertexAttrib2f(const string &label, GLuint indx, GLfloat x, GLfloat y) const {
-    glVertexAttrib2f(indx, x, y);
-    if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib3f(%s: %d, x, y, z)", label.c_str(), indx, x, y, z)
     }
     return *this;
 }
@@ -1491,6 +1482,15 @@ VertexAttrib2fv(const string &label, GLuint indx, const GLfloat *values) const {
 //    glVertexAttrib2fv(indx, values);
     if (enableVerboseOutput) {
         LogDebug("glVertexAttrib2fv(%s: %d, values = %p)", label.c_str(), indx, values)
+    }
+    return *this;
+}
+
+const LFXOpenGLES &LFXOpenGLES::
+VertexAttrib2f(const string &label, GLuint indx, GLfloat x, GLfloat y) const {
+//    glVertexAttrib2f(indx, x, y);
+    if (enableVerboseOutput) {
+        LogDebug("glVertexAttrib2f(%s: %d, x, y)", label.c_str(), indx, x, y)
     }
     return *this;
 }
@@ -1506,9 +1506,9 @@ VertexAttrib1fv(const string &label, GLuint indx, const GLfloat *values) const {
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib1f(const string &label, GLuint indx, GLfloat x) const {
-    glVertexAttrib1f(indx, x);
+//    glVertexAttrib1f(indx, x);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib1f(%s: %d, x)", label.c_str(), indx, x)
     }
     return *this;
 }

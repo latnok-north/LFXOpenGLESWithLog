@@ -63,10 +63,13 @@ int main(int argc, const char *argv[]) {
 #pragma mark VertexAttrib
     GLfloat *values = nullptr;
     gl.VertexAttrib4fv(label, 0, values)
-    .VertexAttrib3fv(label, 0, values)
-    .VertexAttrib2fv(label, 0, values)
-    .VertexAttrib1fv(label, 0, values)
-
+            .VertexAttrib3fv(label, 0, values)
+            .VertexAttrib2fv(label, 0, values)
+            .VertexAttrib1fv(label, 0, values)
+            .VertexAttrib4f(label, 0, 1, 2, 3, 4)
+            .VertexAttrib3f(label, 0, 1, 2, 3)
+            .VertexAttrib2f(label, 0, 1, 2)
+            .VertexAttrib1f(label, 0, 1)
             ;
 
     return 0;
