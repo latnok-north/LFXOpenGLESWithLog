@@ -1397,7 +1397,7 @@ GetVertexAttribfv(const string &label, GLuint index, GLenum pname, GLfloat *para
 
 const LFXOpenGLES &LFXOpenGLES::
 GetUniformLocation(const string &label, GLuint program, const GLchar *name, int location) const {
-    glGetUniformLocation(program, name);
+//    glGetUniformLocation(program, name);
     if (enableVerboseOutput) {
         LogDebug("glGetUniformLocation(%s: %d, %s) -> %d", label.c_str(), program, name, location);
         if (location < 0) {
