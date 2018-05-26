@@ -42,16 +42,16 @@ int main(int argc, const char *argv[]) {
     GLchar infolog[1024];
     GLint param;
 
-    gl.CreateShader(label, GL_VERTEX_SHADER, vShader)
-            .ShaderSource(label, vShader, 1, &kPassThroughVertexShaderString, nullptr)
-            .CompileShader(label, vShader)
-            .GetShaderInfoLog(label, vShader, bufferSize, nullptr, infolog)
-            .GetShaderiv(label, vShader, GL_COMPILE_STATUS, &param)
-            .DeleteShader(label, vShader)
-        .IsShader(label, vShader, isVShader)
-        .ShaderBinary(1, &vShader, GL_SHADER_BINARY_FORMATS, nullptr, 0)
-        .ReleaseShaderCompiler()
-            ;
+//    gl.CreateShader(label, GL_VERTEX_SHADER, vShader)
+//            .ShaderSource(label, vShader, 1, &kPassThroughVertexShaderString, nullptr)
+//            .CompileShader(label, vShader)
+//            .GetShaderInfoLog(label, vShader, bufferSize, nullptr, infolog)
+//            .GetShaderiv(label, vShader, GL_COMPILE_STATUS, &param)
+//            .DeleteShader(label, vShader)
+//        .IsShader(label, vShader, isVShader)
+//        .ShaderBinary(1, &vShader, GL_SHADER_BINARY_FORMATS, nullptr, 0)
+//        .ReleaseShaderCompiler()
+//            ;
 
 //
 //    gl.CreateProgram(label, program)
@@ -59,5 +59,15 @@ int main(int argc, const char *argv[]) {
 //            .AttachShader(label, program, fShader)
 //            .LinkProgram(label, program)
 //            .GetProgramInfoLog(label, program, bufferSize, nullptr, infolog);
+
+#pragma mark VertexAttrib
+    GLfloat *values = nullptr;
+    gl.VertexAttrib4fv(label, 0, values)
+    .VertexAttrib3fv(label, 0, values)
+    .VertexAttrib2fv(label, 0, values)
+    .VertexAttrib1fv(label, 0, values)
+
+            ;
+
     return 0;
 }
