@@ -1,3 +1,9 @@
+# macOS
+*/*.DS_Store
+
+# AppCode
+*/.idea
+
 # Prerequisites
 *.d
 

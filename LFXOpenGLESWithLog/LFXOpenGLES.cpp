@@ -1443,72 +1443,72 @@ VertexAttribPointer(const string &label, GLuint location, GLint size, GLenum typ
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib4fv(const string &label, GLuint indx, const GLfloat *values) const {
-    glVertexAttrib4fv(indx, values);
+//    glVertexAttrib4fv(indx, values);
     if (enableVerboseOutput) {
-        LogDebug("glVertexAttrib4fv(indx, values)")
+        LogDebug("glVertexAttrib4fv(%s: %d, values = %p)", label.c_str(), indx, values)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib4f(const string &label, GLuint indx, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const {
-    glVertexAttrib4f(indx, x, y, z, w);
+//    glVertexAttrib4f(indx, x, y, z, w);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib4f(%s: %d, x, y, z, w)", label.c_str(), indx, x, y, z, w)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib3fv(const string &label, GLuint indx, const GLfloat *values) const {
-    glVertexAttrib3fv(indx, values);
+//    glVertexAttrib3fv(indx, values);
     if (enableVerboseOutput) {
-
+        LogDebug("glVertexAttrib3fv(%s: %d, values = %p)", label.c_str(), indx, values)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib3f(const string &label, GLuint indx, GLfloat x, GLfloat y, GLfloat z) const {
-    glVertexAttrib3f(indx, x, y, z);
+//    glVertexAttrib3f(indx, x, y, z);
     if (enableVerboseOutput) {
-        LogDebug("")
-    }
-    return *this;
-}
-
-const LFXOpenGLES &LFXOpenGLES::
-VertexAttrib2f(const string &label, GLuint indx, GLfloat x, GLfloat y) const {
-    glVertexAttrib2f(indx, x, y);
-    if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib3f(%s: %d, x, y, z)", label.c_str(), indx, x, y, z)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib2fv(const string &label, GLuint indx, const GLfloat *values) const {
-    glVertexAttrib2fv(indx, values);
+//    glVertexAttrib2fv(indx, values);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib2fv(%s: %d, values = %p)", label.c_str(), indx, values)
+    }
+    return *this;
+}
+
+const LFXOpenGLES &LFXOpenGLES::
+VertexAttrib2f(const string &label, GLuint indx, GLfloat x, GLfloat y) const {
+//    glVertexAttrib2f(indx, x, y);
+    if (enableVerboseOutput) {
+        LogDebug("glVertexAttrib2f(%s: %d, x, y)", label.c_str(), indx, x, y)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib1fv(const string &label, GLuint indx, const GLfloat *values) const {
-    glVertexAttrib1fv(indx, values);
+//    glVertexAttrib1fv(indx, values);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib1fv(%s: %d, values = %p)", label.c_str(), indx, values)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 VertexAttrib1f(const string &label, GLuint indx, GLfloat x) const {
-    glVertexAttrib1f(indx, x);
+//    glVertexAttrib1f(indx, x);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glVertexAttrib1f(%s: %d, x)", label.c_str(), indx, x)
     }
     return *this;
 }
@@ -1565,40 +1565,45 @@ Uniform4fv(GLint location, GLsizei count, const GLfloat *v) const {
 
 const LFXOpenGLES &LFXOpenGLES::
 Uniform4f(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const {
+    glUniform4f(location, x, y, z, w);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform3f(location = %d, x = %f, y = %f, z = %f, w = %f)", location, x, y, z, w)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 Uniform3iv(GLint location, GLsizei count, const GLint *v) const {
+    glUniform3iv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform3iv(location = %d, count = %d, v = %p)", location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 Uniform3i(GLint location, GLint x, GLint y, GLint z) const {
+    glUniform3i(location, x, y, z);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform3i(location = %d, x = %d, y = %d, z = %d)", location, x, y, z)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 Uniform3fv(GLint location, GLsizei count, const GLfloat *v) const {
+    glUniform3fv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform3fv(location = %d, count = %d, v = %p)", location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 Uniform3f(GLint location, GLfloat x, GLfloat y, GLfloat z) const {
+    glUniform3f(location, x, y, z);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform3f(location = %d, x = %f, y = %f, z = %f)", location, x, y, z)
     }
     return *this;
 }
