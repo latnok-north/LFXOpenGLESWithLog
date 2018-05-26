@@ -397,61 +397,61 @@ public:
     GetShaderSource(ConstStringRefLabel, GLuint shader, GLsizei bufsize, GLsizei *length, GLchar *source) const;
 
     const LFXOpenGLES &
-    Uniform1f(GLint location, GLfloat x) const;
+    Uniform1f(ConstStringRefLabel, GLint location, GLfloat x) const;
 
     const LFXOpenGLES &
-    Uniform1fv(GLint location, GLsizei count, const GLfloat *v) const;
+    Uniform1fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const;
 
     const LFXOpenGLES &
     Uniform1i(ConstStringRefLabel, GLint location, GLint value) const;
 
     const LFXOpenGLES &
-    Uniform1iv(const string &label, GLint location, GLsizei count, const GLint *v) const;
+    Uniform1iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const;
 
     const LFXOpenGLES &
-    Uniform2f(GLint location, GLfloat x, GLfloat y) const;
+    Uniform2f(ConstStringRefLabel, GLint location, GLfloat x, GLfloat y) const;
 
     const LFXOpenGLES &
-    Uniform2fv(GLint location, GLsizei count, const GLfloat *v) const;
+    Uniform2fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const;
 
     const LFXOpenGLES &
-    Uniform2i(GLint location, GLint x, GLint y) const;
+    Uniform2i(ConstStringRefLabel, GLint location, GLint x, GLint y) const;
 
     const LFXOpenGLES &
-    Uniform2iv(GLint location, GLsizei count, const GLint *v) const;
+    Uniform2iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const;
 
     const LFXOpenGLES &
-    Uniform3f(GLint location, GLfloat x, GLfloat y, GLfloat z) const;
+    Uniform3f(ConstStringRefLabel, GLint location, GLfloat x, GLfloat y, GLfloat z) const;
 
     const LFXOpenGLES &
-    Uniform3fv(GLint location, GLsizei count, const GLfloat *v) const;
+    Uniform3fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const;
 
     const LFXOpenGLES &
-    Uniform3i(GLint location, GLint x, GLint y, GLint z) const;
+    Uniform3i(ConstStringRefLabel, GLint location, GLint x, GLint y, GLint z) const;
 
     const LFXOpenGLES &
-    Uniform3iv(GLint location, GLsizei count, const GLint *v) const;
+    Uniform3iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const;
 
     const LFXOpenGLES &
-    Uniform4f(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const;
+    Uniform4f(ConstStringRefLabel, GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const;
 
     const LFXOpenGLES &
-    Uniform4fv(GLint location, GLsizei count, const GLfloat *v) const;
+    Uniform4fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const;
 
     const LFXOpenGLES &
-    Uniform4i(GLint location, GLint x, GLint y, GLint z, GLint w) const;
+    Uniform4i(ConstStringRefLabel, GLint location, GLint x, GLint y, GLint z, GLint w) const;
 
     const LFXOpenGLES &
-    Uniform4iv(GLint location, GLsizei count, const GLint *v) const;
+    Uniform4iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const;
 
     const LFXOpenGLES &
-    UniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const;
+    UniformMatrix2fv(ConstStringRefLabel, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const;
 
     const LFXOpenGLES &
-    UniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const;
+    UniformMatrix3fv(ConstStringRefLabel, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const;
 
     const LFXOpenGLES &
-    UniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const;
+    UniformMatrix4fv(ConstStringRefLabel, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const;
 
     const LFXOpenGLES &
     VertexAttrib1f(ConstStringRefLabel, GLuint indx, GLfloat x) const;
