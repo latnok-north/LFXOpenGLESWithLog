@@ -148,6 +148,15 @@ string toLFXOpenGLESLiteral(GLESMacro type, GLint value) {
                     break;
             }
             break;
+        case LFXOpenGLESBindTarget:
+            switch (value) {
+                case GL_RENDERBUFFER:
+                    valueLiteral = LFX_C_STRING(GL_RENDERBUFFER);
+                    break;
+                default:
+                    break;
+            }
+            break;
         case BeginMode:
             switch (value) {
                 case GL_POINTS:
@@ -931,35 +940,64 @@ const LFXOpenGLES &LFXOpenGLES::GetBufferParameteriv(const string &label, GLenum
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BindRenderbuffer(const string &label, GLenum target, GLuint renderbuffer) const {
+#pragma mark Render Buffer
+
+const LFXOpenGLES &LFXOpenGLES::
+GenRenderbuffers(GLsizei n, GLuint *renderbuffers) const {
+//    glGenRenderbuffers(n, renderbuffers);
+    if (enableVerboseOutput) {
+        /// todo: 输出renderbuffer具体数值
+        LogDebug("glGenRenderbuffers(%d, renderbuffers = %p) - > %d", n, renderbuffers, *renderbuffers)
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::DeleteRenderbuffers(GLsizei n, const GLuint *renderbuffers) const {
+const LFXOpenGLES &LFXOpenGLES::
+BindRenderbuffer(const string &label, GLenum target, GLuint renderbuffer) const {
+//    glBindRenderbuffer(target, renderbuffer);
+    if (enableVerboseOutput) {
+        LogDebug("glBindRenderbuffer(target = %s: %s, renderbuffer = %d)", label.c_str(), toLFXOpenGLESLiteral(LFXOpenGLESBindTarget, target).c_str(), renderbuffer)
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::GenRenderbuffers(GLsizei n, GLuint *renderbuffers) const {
+const LFXOpenGLES &LFXOpenGLES::
+DeleteRenderbuffers(GLsizei n, const GLuint *renderbuffers) const {
+//    glDeleteRenderbuffers(n, renderbuffers);
+    if (enableVerboseOutput) {
+
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::RenderbufferStorage(const string &label, GLenum target, GLenum internalformat, GLsizei width, GLsizei height) const {
+const LFXOpenGLES &LFXOpenGLES::
+RenderbufferStorage(const string &label, GLenum target, GLenum internalformat, GLsizei width, GLsizei height) const {
+//    glRenderbufferStorage(target, internalformat, width, height);
+    if (enableVerboseOutput) {
+        LogDebug("glRenderbufferStorage(target, internalformat, width, height)")
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::GetRenderbufferParameteriv(const string &label, GLenum target, GLenum pname, GLint *params) const {
+const LFXOpenGLES &LFXOpenGLES::
+GetRenderbufferParameteriv(const string &label, GLenum target, GLenum pname, GLint *params) const {
+//    glGetRenderbufferParameteriv(target, pname, params);
+    if (enableVerboseOutput) {
+        LogDebug("glGetRenderbufferParameteriv(target, pname, params)")
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::IsRenderbuffer(const string &label, GLuint renderbuffer) const {
+const LFXOpenGLES &LFXOpenGLES::
+IsRenderbuffer(const string &label, GLuint renderbuffer, GLboolean isRenderBuffer) const {
+//    isRenderBuffer = glIsRenderbuffer(renderbuffer);
+    if (enableVerboseOutput) {
+        LogDebug("glIsRenderbuffer(renderbuffer = %s: %d) -> %s", label.c_str(), renderbuffer, toLFXOpenGLESLiteral(LFXOpenGLESBoolean, isRenderBuffer).c_str());
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::GenFramebuffers(const string &label, GLsizei n, GLuint *framebuffers) const {
-    if (n <= 0) {
-        LogDebug("n <= 0");
-        return *this;
-    }
     glGenFramebuffers(n, framebuffers);
     LogDebug("glGenFramebuffers(count = %d, framebuffers = %p) -> ", n, framebuffers);
 //        if (GPUDevice::isDebug())

@@ -124,5 +124,15 @@ int main(int argc, const char *argv[]) {
             .CopyTexImage2D(label, GL_TEXTURE_2D, 0, GL_RGBA, 0, 0, 100, 100, 0)
             .CompressedTexImage2D(label, GL_RGBA, 0, GL_RGBA, 100, 100, 0, 100, nullptr);
 
+#pragma mark RenderBuffer
+    GLuint renderbuffers;
+    GLboolean isRenderbuffer;
+    gl.GenRenderbuffers(1, &renderbuffers)
+            .BindRenderbuffer(label, GL_RENDERBUFFER, renderbuffers)
+            .RenderbufferStorage(label, GL_RENDERBUFFER, GL_RGBA, 100, 100)
+            .IsRenderbuffer(label, renderbuffers, isRenderbuffer)
+            .DeleteRenderbuffers(1, &renderbuffers)
+            .GetRenderbufferParameteriv(label, GL_RENDERBUFFER, GL_RENDER_MODE, &param);
+
     return 0;
 }
