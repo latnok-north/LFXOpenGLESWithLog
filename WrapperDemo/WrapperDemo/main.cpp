@@ -64,6 +64,8 @@ int main(int argc, const char *argv[]) {
 #pragma mark VertexAttrib
     GLfloat *fValues = nullptr;
     GLint *iValues = nullptr;
+    GLint iParam = 0;
+    GLfloat fParam = 0;
     gl.VertexAttrib4fv(label, 0, fValues)
             .VertexAttrib3fv(label, 0, fValues)
             .VertexAttrib2fv(label, 0, fValues)
@@ -94,7 +96,9 @@ int main(int argc, const char *argv[]) {
             .UniformMatrix3fv(label, 0, 1, GL_FALSE, fValues)
             .UniformMatrix4fv(label, 0, 1, GL_FALSE, fValues)
 #pragma mark Get Location
-            .GetUniformLocation(label, program, "", 0);
+            .GetUniformLocation(label, program, "hello", 0)
+            .GetUniformiv(label, program, 0, &iParam)
+            .GetUniformfv(label, program, 0, &fParam);
 #pragma mark Stencil
     gl.StencilOpSeparate(label, 1, 2, 3, 4)
             .StencilOp(label, 1, 2, 3)

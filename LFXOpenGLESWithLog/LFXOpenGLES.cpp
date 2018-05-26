@@ -1142,7 +1142,7 @@ const LFXOpenGLES &LFXOpenGLES::
 StencilOpSeparate(const string &label, GLenum face, GLenum fail, GLenum zfail, GLenum zpass) const {
     //glStencilOpSeparate(face, fail, zfail, zpass);
     if (enableVerboseOutput) {
-        LogDebug("StencilOpSeparate(face = %d, fail = %d, zfail= %d, zpass = %d)", face, fail, zfail, zpass);
+        LogDebug("glStencilOpSeparate(face = %d, fail = %d, zfail= %d, zpass = %d)", face, fail, zfail, zpass);
     }
     return *this;
 }
@@ -1151,7 +1151,7 @@ const LFXOpenGLES &LFXOpenGLES::
 StencilOp(const string &label, GLenum fail, GLenum zfail, GLenum zpass) const {
     //glStencilOp(fail, zfail, zpass);
     if (enableVerboseOutput) {
-        LogDebug("StencilOp(fail = %d, zfail= %d, zpass = %d)", fail, zfail, zpass);
+        LogDebug("glStencilOp(fail = %d, zfail= %d, zpass = %d)", fail, zfail, zpass);
     }
     return *this;
 }
@@ -1160,7 +1160,7 @@ const LFXOpenGLES &LFXOpenGLES::
 StencilMaskSeparate(const string &label, GLenum face, GLuint mask) const {
     //glStencilMaskSeparate(face, mask);
     if (enableVerboseOutput) {
-        LogDebug("StencilMaskSeparate(face = %d, mask= %d)", face, mask);
+        LogDebug("glStencilMaskSeparate(face = %d, mask= %d)", face, mask);
     }
     return *this;
 }
@@ -1169,7 +1169,7 @@ const LFXOpenGLES &LFXOpenGLES::
 StencilMask(const string &label, GLuint mask) const {
     //glStencilMask(mask);
     if (enableVerboseOutput) {
-        LogDebug("StencilMask(mask= %d)", mask);
+        LogDebug("glStencilMask(mask= %d)", mask);
     }
     return *this;
 }
@@ -1178,12 +1178,14 @@ const LFXOpenGLES &LFXOpenGLES::
 StencilFuncSeparate(const string &label, GLenum face, GLenum func, GLint ref, GLuint mask) const {
     //glStencilFuncSeparate(face, func, ref, mask);
     if (enableVerboseOutput) {
-        LogDebug("StencilFuncSeparate(face = %d, func = %d, ref = %d, mask= %d)", face, func, ref, mask);
+        LogDebug("glStencilFuncSeparate(face = %d, func = %d, ref = %d, mask= %d)", face, func, ref, mask);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::StencilFunc(const string &label, GLenum func, GLint ref, GLuint mask) const {
+const LFXOpenGLES &LFXOpenGLES::
+StencilFunc(const string &label, GLenum func, GLint ref, GLuint mask) const {
+    glStencilFunc(func, ref, mask);
     return *this;
 }
 
@@ -1402,31 +1404,27 @@ GetVertexAttribfv(const string &label, GLuint index, GLenum pname, GLfloat *para
 
 const LFXOpenGLES &LFXOpenGLES::
 GetUniformLocation(const string &label, GLuint program, const GLchar *name, int location) const {
-//    glGetUniformLocation(program, name);
+//    location = glGetUniformLocation(program, name);
     if (enableVerboseOutput) {
         LogDebug("glGetUniformLocation(%s: %d, %s) -> %d", label.c_str(), program, name, location);
-        if (location < 0) {
-            /// something goes wrong.
-            LogDebug("not found argument(%s)", name);
-        }
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 GetUniformiv(const string &label, GLuint program, GLint location, GLint *params) const {
-    glGetUniformiv(program, location, params);
+//    glGetUniformiv(program, location, params);
     if (enableVerboseOutput) {
-        LogDebug("glGetUniformiv(program, location, params)")
+        LogDebug("glGetUniformiv(%s: %d, location = %d, params = %p)", label.c_str(), program, location, params)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 GetUniformfv(const string &label, GLuint program, GLint location, GLfloat *params) const {
-    glGetUniformfv(program, location, params);
+//    glGetUniformfv(program, location, params);
     if (enableVerboseOutput) {
-        LogDebug("glGetUniformfv(program, location, params)")
+        LogDebug("glGetUniformfv(%s: %d, location = %d, params = %p)", label.c_str(), program, location, params)
     }
     return *this;
 }
