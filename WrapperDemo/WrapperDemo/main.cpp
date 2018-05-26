@@ -105,6 +105,14 @@ int main(int argc, const char *argv[]) {
             .StencilMaskSeparate(label, 1, 2)
             .StencilMask(label, 1)
             .StencilFuncSeparate(label, 1, 2, 3, 4);
+#pragma mark Depth
+    gl.DepthRangef(0.1f, 0.2f)
+    .DepthMask('c')
+    .DepthFunc(label, 1)
+    .CullFace(label, 1)
+    .ColorMask('r', 'g', 'b', 'a')
+    .ClearStencil(1)
+    .ClearDepthf(0.1);
 
     return 0;
 }
