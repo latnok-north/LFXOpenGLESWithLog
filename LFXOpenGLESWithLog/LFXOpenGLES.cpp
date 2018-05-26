@@ -1274,30 +1274,58 @@ const LFXOpenGLES &LFXOpenGLES::Disable(const string &label, GLenum cap) const {
 }
 
 const LFXOpenGLES &LFXOpenGLES::DepthRangef(GLclampf zNear, GLclampf zFar) const {
+    //glDepthRangef(zNear, zFar);
+    if (enableVerboseOutput) {
+        LogDebug("DepthRangef(zNear = %f, zFar = %f)", zNear, zNear);
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::DepthMask(GLboolean flag) const {
+    //glDepthMask(flag);
+    if (enableVerboseOutput) {
+        LogDebug("DepthMask(flag = %c)", flag);
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::DepthFunc(const string &label, GLenum func) const {
+    //glDepthFunc(func);
+    if (enableVerboseOutput) {
+        LogDebug("DepthFunc(func = %d)", func);
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::CullFace(const string &label, GLenum mode) const {
+    //glCullFace(mode);
+    if (enableVerboseOutput) {
+        LogDebug("CullFace(mode = %d)", mode);
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::ColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) const {
+    //glColorMask(red, green, blue, alpha);
+    if (enableVerboseOutput) {
+        LogDebug("ColorMask(red = %c, green = %c, blue = %c, alpha = %c)", red, green, blue, alpha);
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::ClearStencil(GLint s) const {
+    //glClearStencil(s);
+    if (enableVerboseOutput) {
+        LogDebug("ClearStencil(s = %d)", s);
+    }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::ClearDepthf(GLclampf depth) const {
+    //glClearDepthf(depth);
+    if (enableVerboseOutput) {
+        LogDebug("ClearStencil(depth = %f)", depth);
+    }
     return *this;
 }
 
