@@ -107,12 +107,22 @@ int main(int argc, const char *argv[]) {
             .StencilFuncSeparate(label, 1, 2, 3, 4);
 #pragma mark Depth
     gl.DepthRangef(0.1f, 0.2f)
-    .DepthMask('c')
-    .DepthFunc(label, 1)
-    .CullFace(label, 1)
-    .ColorMask('r', 'g', 'b', 'a')
-    .ClearStencil(1)
-    .ClearDepthf(0.1);
+            .DepthMask('c')
+            .DepthFunc(label, 1)
+            .CullFace(label, 1)
+            .ColorMask('r', 'g', 'b', 'a')
+            .ClearStencil(1)
+            .ClearDepthf(0.1);
+#pragma mark Texture
+    GLuint textures;
+    GLboolean isTexture;
+    gl.GenTextures(label, 1, &textures)
+            .BindTexture(label, GL_TEXTURE_2D, textures)
+            .TexImage2D(label, GL_TEXTURE_2D, 0, GL_RGBA, 100, 100, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr)
+            .IsTexture(label, textures, isTexture)
+            .ActiveTexture(label, textures)
+            .CopyTexImage2D(label, GL_TEXTURE_2D, 0, GL_RGBA, 0, 0, 100, 100, 0)
+            .CompressedTexImage2D(label, GL_RGBA, 0, GL_RGBA, 100, 100, 0, 100, nullptr);
 
     return 0;
 }

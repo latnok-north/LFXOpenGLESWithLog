@@ -737,23 +737,23 @@ string toLFXOpenGLESLiteral(GLESMacro type, GLint value) {
 #pragma mark Texture
 
 // todo: 逐个输出textures值
-const LFXOpenGLES &
-LFXOpenGLES::GenTextures(ConstStringRefLabel, GLsizei n, GLuint *textures) const {
-    glGenTextures(n, textures);
+const LFXOpenGLES &LFXOpenGLES::
+GenTextures(ConstStringRefLabel, GLsizei n, GLuint *textures) const {
+//    glGenTextures(n, textures);
     if (enableVerboseOutput) {
         LogDebug("glGenTextures(n = %d, textures = %p) -> %d", n, textures, *textures);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BindTexture(const string &label, GLenum target, GLuint texture) const {
-    glBindTexture(target, texture);
-
+const LFXOpenGLES &LFXOpenGLES::
+BindTexture(const string &label, GLenum target, GLuint texture) const {
+//    glBindTexture(target, texture);
     if (enableVerboseOutput) {
         LogDebug("glBindTexture(target = %s, texture = %d)", toLFXOpenGLESLiteral(TextureTarget, target).c_str(), texture);
 #if GL_EXT_debug_label
         /// GL_TEXTURE 正常工作
-        glLabelObjectEXT(GL_TEXTURE, texture, 0, label.c_str());
+//        glLabelObjectEXT(GL_TEXTURE, texture, 0, label.c_str());
 #endif
     }
     return *this;
@@ -805,8 +805,9 @@ const LFXOpenGLES &LFXOpenGLES::GetTexParameteriv(const string &label, GLenum ta
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::TexImage2D(const string &label, GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels) const {
-    glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+const LFXOpenGLES &LFXOpenGLES::
+TexImage2D(const string &label, GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels) const {
+//    glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
     if (enableVerboseOutput) {
         LogDebug("glTexImage2D(target = %s, level = %d, internal format = %s, width = %d, height = %d, border = %d, format = %s, type = %s, pixels = %p)",
                 toLFXOpenGLESLiteral(TextureTarget, target).c_str(),
@@ -825,8 +826,6 @@ const LFXOpenGLES &LFXOpenGLES::TexImage2D(const string &label, GLenum target, G
 const LFXOpenGLES &LFXOpenGLES::TexSubImage2D(const string &label, GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *pixels) const {
     glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
     if (enableVerboseOutput) {
-
-
         LogDebug("glTexSubImage2D(target = %s, level = %d, xoffset = %d, yoffset = %d, width = %d, height = %d, format = %s, type = %s, pixels = %p)",
                 toLFXOpenGLESLiteral(TextureTarget, target).c_str(),
                 level,
@@ -841,7 +840,20 @@ const LFXOpenGLES &LFXOpenGLES::TexSubImage2D(const string &label, GLenum target
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::CompressedTexImage2D(const string &label, GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, const GLvoid *data) const {
+const LFXOpenGLES &LFXOpenGLES::
+CompressedTexImage2D(const string &label, GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, const GLvoid *data) const {
+//    glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
+    if (enableVerboseOutput) {
+        LogDebug("glCompressedTexImage2D(target = %s, level = %d, internalformat = %s, width = %d, height = %d, border = %d, imageSize = %d, data = %p)",
+                toLFXOpenGLESLiteral(TextureTarget, target).c_str(),
+                level,
+                toLFXOpenGLESLiteral(GLESMacroTexture, internalformat).c_str(),
+                width,
+                height,
+                border,
+                imageSize,
+                data);
+    }
     return *this;
 }
 
@@ -849,27 +861,19 @@ const LFXOpenGLES &LFXOpenGLES::CompressedTexSubImage2D(const string &label, GLe
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::ActiveTexture(const string &label, GLenum &texture) const {
-    /**
-     * Errors
-     *
-     * GL_INVALID_ENUM is generated if texture is not one of GL_TEXTUREi,
-     * where i ranges from 0 to  (GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS 1).
-     *
-     */
-    glActiveTexture(texture);
+const LFXOpenGLES &LFXOpenGLES::
+ActiveTexture(const string &label, GLenum &texture) const {
+//    glActiveTexture(texture);
     if (enableVerboseOutput) {
         LogDebug("glActiveTexture(%s: %s)", label.c_str(), toLFXOpenGLESLiteral(TextureUnit, texture).c_str());
-        // check_error
     }
     return *this;
 }
 
-// todo: glTrue转换成字符串
 const LFXOpenGLES &LFXOpenGLES::IsTexture(const string &label, GLuint texture, GLboolean &isTexture) const {
-    isTexture = glIsTexture(texture);
+//    isTexture = glIsTexture(texture);
     if (enableVerboseOutput) {
-        LogDebug("glIsTexture(%s: %d) -> %d", label.c_str(), texture, isTexture);
+        LogDebug("glIsTexture(%s: %d) -> %s", label.c_str(), texture, toLFXOpenGLESLiteral(LFXOpenGLESBoolean, isTexture).c_str());
     }
     return *this;
 }
@@ -879,7 +883,12 @@ const LFXOpenGLES &LFXOpenGLES::DeleteTextures(const string &label, GLsizei n, c
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::CopyTexImage2D(const string &label, GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) const {
+const LFXOpenGLES &LFXOpenGLES::
+CopyTexImage2D(const string &label, GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) const {
+//    glCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
+    if (enableVerboseOutput) {
+//        LogDebug("glCopyTexImage2D(%s: %s, level = %d, internalformat = %s, x = %d, y = %d, width = %d, height = %d, border = %d)", )
+    }
     return *this;
 }
 
@@ -1273,64 +1282,71 @@ const LFXOpenGLES &LFXOpenGLES::Disable(const string &label, GLenum cap) const {
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::DepthRangef(GLclampf zNear, GLclampf zFar) const {
+const LFXOpenGLES &LFXOpenGLES::
+DepthRangef(GLclampf zNear, GLclampf zFar) const {
     //glDepthRangef(zNear, zFar);
     if (enableVerboseOutput) {
-        LogDebug("DepthRangef(zNear = %f, zFar = %f)", zNear, zNear);
+        LogDebug("glDepthRangef(zNear = %f, zFar = %f)", zNear, zNear);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::DepthMask(GLboolean flag) const {
+const LFXOpenGLES &LFXOpenGLES::
+DepthMask(GLboolean flag) const {
     //glDepthMask(flag);
     if (enableVerboseOutput) {
-        LogDebug("DepthMask(flag = %c)", flag);
+        LogDebug("glDepthMask(flag = %c)", flag);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::DepthFunc(const string &label, GLenum func) const {
+const LFXOpenGLES &LFXOpenGLES::
+DepthFunc(const string &label, GLenum func) const {
     //glDepthFunc(func);
     if (enableVerboseOutput) {
-        LogDebug("DepthFunc(func = %d)", func);
+        LogDebug("glDepthFunc(func = %d)", func);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::CullFace(const string &label, GLenum mode) const {
+const LFXOpenGLES &LFXOpenGLES::
+CullFace(const string &label, GLenum mode) const {
     //glCullFace(mode);
     if (enableVerboseOutput) {
-        LogDebug("CullFace(mode = %d)", mode);
+        LogDebug("glCullFace(mode = %d)", mode);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::ColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) const {
+const LFXOpenGLES &LFXOpenGLES::
+ColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) const {
     //glColorMask(red, green, blue, alpha);
     if (enableVerboseOutput) {
-        LogDebug("ColorMask(red = %c, green = %c, blue = %c, alpha = %c)", red, green, blue, alpha);
+        LogDebug("glColorMask(red = %c, green = %c, blue = %c, alpha = %c)", red, green, blue, alpha);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::ClearStencil(GLint s) const {
+const LFXOpenGLES &LFXOpenGLES::
+ClearStencil(GLint s) const {
     //glClearStencil(s);
     if (enableVerboseOutput) {
-        LogDebug("ClearStencil(s = %d)", s);
+        LogDebug("glClearStencil(s = %d)", s);
     }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::ClearDepthf(GLclampf depth) const {
+const LFXOpenGLES &LFXOpenGLES::
+ClearDepthf(GLclampf depth) const {
     //glClearDepthf(depth);
     if (enableVerboseOutput) {
-        LogDebug("ClearStencil(depth = %f)", depth);
+        LogDebug("glClearStencil(depth = %f)", depth);
     }
     return *this;
 }
 
-const LFXOpenGLES &
-LFXOpenGLES::ClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) const {
+const LFXOpenGLES &LFXOpenGLES::
+ClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) const {
     glClearColor(red, green, blue, alpha);
     if (enableVerboseOutput) {
         LogDebug("glClearColor(r = %f, g = %f, b = %f, a = %f)", red, green, blue, alpha);
@@ -1341,8 +1357,8 @@ LFXOpenGLES::ClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
 #pragma mark Clear
 
 // todo: 改日志，宏
-const LFXOpenGLES &
-LFXOpenGLES::Clear(GLbitfield mask) const {
+const LFXOpenGLES &LFXOpenGLES::
+Clear(GLbitfield mask) const {
     glClear(mask);
     if (enableVerboseOutput) {
         LogDebug("glClear(%s)", toLFXOpenGLESLiteral(GLESMacroDataType, mask).c_str());
@@ -1350,27 +1366,42 @@ LFXOpenGLES::Clear(GLbitfield mask) const {
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BlendFuncSeparate(const string &label, GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha) const {
+const LFXOpenGLES &LFXOpenGLES::
+BlendFuncSeparate(const string &label, GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha) const {
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BlendFunc(GLenum sfactor, GLenum dfactor) const {
+const LFXOpenGLES &LFXOpenGLES::
+BlendFunc(GLenum sfactor, GLenum dfactor) const {
     glBlendFunc(sfactor, dfactor);
-    LogDebug("glBlendFunc(sfactor = %s, dfactor = %s)",
-            toLFXOpenGLESLiteral(Blend, sfactor).c_str(),
-            toLFXOpenGLESLiteral(Blend, dfactor).c_str());
+    if (enableVerboseOutput) {
+        LogDebug("glBlendFunc(sfactor = %s, dfactor = %s)",
+                toLFXOpenGLESLiteral(Blend, sfactor).c_str(),
+                toLFXOpenGLESLiteral(Blend, dfactor).c_str());
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BlendEquationSeparate(const string &label, GLenum modeRGB, GLenum modeAlpha) const {
+const LFXOpenGLES &LFXOpenGLES::
+BlendEquationSeparate(const string &label, GLenum modeRGB, GLenum modeAlpha) const {
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BlendEquation(const string &label, GLenum mode) const {
+const LFXOpenGLES &LFXOpenGLES::
+BlendEquation(const string &label, GLenum mode) const {
+    glBlendEquation(mode);
+    if (enableVerboseOutput) {
+//        LogDebug("glBlendEquation(mode = %s);", toLFXOpenGLESLiteral(LFXBlendEquation, mode))
+    }
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::BlendColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) const {
+const LFXOpenGLES &LFXOpenGLES::
+BlendColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) const {
+    glBlendColor(red, green, blue, alpha);
+    if (enableVerboseOutput) {
+        LogDebug("glBlendColor(red = %f, green = %f, blue = %f, alpha = %f)", red, green, blue, alpha)
+    }
     return *this;
 }
 
