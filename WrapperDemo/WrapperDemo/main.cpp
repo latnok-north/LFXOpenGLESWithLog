@@ -41,7 +41,8 @@ int main(int argc, const char *argv[]) {
     GLuint bufferSize = 1024;
     GLchar infolog[1024];
     GLint param;
-
+    GLenum gl_enum;
+    const GLint *params;
 //    gl.CreateShader(label, GL_VERTEX_SHADER, vShader)
 //            .ShaderSource(label, vShader, 1, &kPassThroughVertexShaderString, nullptr)
 //            .CompileShader(label, vShader)
@@ -70,6 +71,7 @@ int main(int argc, const char *argv[]) {
             .VertexAttrib4f(label, 0, 1, 2, 3, 4)
             .VertexAttrib3f(label, 0, 1, 2, 3)
             .VertexAttrib2f(label, 0, 1, 2)
+            .VertexAttrib1f(label, 0, 1);
             .VertexAttrib1f(label, 0, 1)
 #pragma mark Uniform
             .Uniform1fv(label, 0, 0, fValues)
@@ -93,6 +95,12 @@ int main(int argc, const char *argv[]) {
             .UniformMatrix4fv(label, 0, 1, GL_FALSE, fValues)
             .GetUniformLocation(<#const string & label#>, <#GLuint program#>, <#const GLchar* name#>, <#int location#>)
             ;
+#pragma mark Stencil
+      gl.StencilOpSeparate(label, 1, 2, 3, 4)
+    .StencilOp(label, 1, 2, 3)
+    .StencilMaskSeparate(label, 1, 2)
+    .StencilMask(label, 1)
+    .StencilFuncSeparate(label, 1, 2, 3, 4);
 
     return 0;
 }
