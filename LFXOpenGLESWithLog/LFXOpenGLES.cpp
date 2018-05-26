@@ -790,9 +790,9 @@ const LFXOpenGLES &LFXOpenGLES::TexParameteriv(const string &label, GLenum targe
     //glTexParameteriv(target, pname, params);
     if (enableVerboseOutput) {
         LogDebug("glTexParameteriv(target = %d, pname = %d, param = %d)",
-                 target,
-                 pname,
-                 params);
+                target,
+                pname,
+                params);
     }
     return *this;
 }
@@ -1138,7 +1138,8 @@ GetShaderPrecisionFormat(const string &label, GLenum shadertype, GLenum precisio
 
 #pragma mark - Stencil
 
-const LFXOpenGLES &LFXOpenGLES::StencilOpSeparate(const string &label, GLenum face, GLenum fail, GLenum zfail, GLenum zpass) const {
+const LFXOpenGLES &LFXOpenGLES::
+StencilOpSeparate(const string &label, GLenum face, GLenum fail, GLenum zfail, GLenum zpass) const {
     //glStencilOpSeparate(face, fail, zfail, zpass);
     if (enableVerboseOutput) {
         LogDebug("StencilOpSeparate(face = %d, fail = %d, zfail= %d, zpass = %d)", face, fail, zfail, zpass);
@@ -1146,7 +1147,8 @@ const LFXOpenGLES &LFXOpenGLES::StencilOpSeparate(const string &label, GLenum fa
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::StencilOp(const string &label, GLenum fail, GLenum zfail, GLenum zpass) const {
+const LFXOpenGLES &LFXOpenGLES::
+StencilOp(const string &label, GLenum fail, GLenum zfail, GLenum zpass) const {
     //glStencilOp(fail, zfail, zpass);
     if (enableVerboseOutput) {
         LogDebug("StencilOp(fail = %d, zfail= %d, zpass = %d)", fail, zfail, zpass);
@@ -1154,7 +1156,8 @@ const LFXOpenGLES &LFXOpenGLES::StencilOp(const string &label, GLenum fail, GLen
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::StencilMaskSeparate(const string &label, GLenum face, GLuint mask) const {
+const LFXOpenGLES &LFXOpenGLES::
+StencilMaskSeparate(const string &label, GLenum face, GLuint mask) const {
     //glStencilMaskSeparate(face, mask);
     if (enableVerboseOutput) {
         LogDebug("StencilMaskSeparate(face = %d, mask= %d)", face, mask);
@@ -1162,7 +1165,8 @@ const LFXOpenGLES &LFXOpenGLES::StencilMaskSeparate(const string &label, GLenum 
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::StencilMask(const string &label, GLuint mask) const {
+const LFXOpenGLES &LFXOpenGLES::
+StencilMask(const string &label, GLuint mask) const {
     //glStencilMask(mask);
     if (enableVerboseOutput) {
         LogDebug("StencilMask(mask= %d)", mask);
@@ -1170,7 +1174,8 @@ const LFXOpenGLES &LFXOpenGLES::StencilMask(const string &label, GLuint mask) co
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::StencilFuncSeparate(const string &label, GLenum face, GLenum func, GLint ref, GLuint mask) const {
+const LFXOpenGLES &LFXOpenGLES::
+StencilFuncSeparate(const string &label, GLenum face, GLenum func, GLint ref, GLuint mask) const {
     //glStencilFuncSeparate(face, func, ref, mask);
     if (enableVerboseOutput) {
         LogDebug("StencilFuncSeparate(face = %d, func = %d, ref = %d, mask= %d)", face, func, ref, mask);
