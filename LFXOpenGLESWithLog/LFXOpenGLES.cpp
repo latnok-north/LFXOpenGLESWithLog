@@ -1395,10 +1395,8 @@ GetVertexAttribfv(const string &label, GLuint index, GLenum pname, GLfloat *para
     return *this;
 }
 
-const LFXOpenGLES &LFXOpenGLES::GetUniformLocation(const string &label, GLuint program, const GLchar *name, int location) const {
-    /**
-     * glGetUniformLocation在glLinkProgram(、glValidateProgram)之后调用
-     */
+const LFXOpenGLES &LFXOpenGLES::
+GetUniformLocation(const string &label, GLuint program, const GLchar *name, int location) const {
     glGetUniformLocation(program, name);
     if (enableVerboseOutput) {
         LogDebug("glGetUniformLocation(%s: %d, %s) -> %d", label.c_str(), program, name, location);
@@ -1541,139 +1539,143 @@ VertexAttrib1f(const string &label, GLuint indx, GLfloat x) const {
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-UniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const {
-    glUniformMatrix4fv(location, count, transpose, value);
+UniformMatrix4fv(ConstStringRefLabel, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const {
+//    glUniformMatrix4fv(location, count, transpose, value);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniformMatrix4fv(%s: %d, count = %d, transpose = %s, value = %p)", label.c_str(), location, count, toLFXOpenGLESLiteral(LFXOpenGLESBoolean, transpose).c_str(), value)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-UniformMatrix3fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const {
-    glUniformMatrix3fv(location, count, transpose, value);
+UniformMatrix3fv(ConstStringRefLabel, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const {
+//    glUniformMatrix3fv(location, count, transpose, value);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniformMatrix3fv(%s: %d, count = %d, transpose = %s, value = %p)", label.c_str(), location, count, toLFXOpenGLESLiteral(LFXOpenGLESBoolean, transpose).c_str(), value)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-UniformMatrix2fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const {
+UniformMatrix2fv(ConstStringRefLabel, GLint location, GLsizei count, GLboolean transpose, const GLfloat *value) const {
+//    glUniformMatrix2fv(location, count, transpose, value);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniformMatrix2fv(%s: %d, count = %d, transpose = %s, value = %p)", label.c_str(), location, count, toLFXOpenGLESLiteral(LFXOpenGLESBoolean, transpose).c_str(), value)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform4iv(GLint location, GLsizei count, const GLint *v) const {
+Uniform4iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const {
+//    glUniform4iv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform4iv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform4i(GLint location, GLint x, GLint y, GLint z, GLint w) const {
+Uniform4i(ConstStringRefLabel, GLint location, GLint x, GLint y, GLint z, GLint w) const {
+//    glUniform4i(location, x, y, z, w);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform4i(%s: %d, x = %d, y = %d, z = %d, w = %d)", label.c_str(), location, x, y, z, w);
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform4fv(GLint location, GLsizei count, const GLfloat *v) const {
+Uniform4fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const {
+//    glUniform4fv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("")
+        LogDebug("glUniform4fv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform4f(GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const {
-    glUniform4f(location, x, y, z, w);
+Uniform4f(ConstStringRefLabel, GLint location, GLfloat x, GLfloat y, GLfloat z, GLfloat w) const {
+//    glUniform4f(location, x, y, z, w);
     if (enableVerboseOutput) {
-        LogDebug("glUniform3f(location = %d, x = %f, y = %f, z = %f, w = %f)", location, x, y, z, w)
+        LogDebug("glUniform4f(%s: %d, x = %f, y = %f, z = %f, w = %f)", label.c_str(), location, x, y, z, w)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform3iv(GLint location, GLsizei count, const GLint *v) const {
-    glUniform3iv(location, count, v);
+Uniform3iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const {
+//    glUniform3iv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("glUniform3iv(location = %d, count = %d, v = %p)", location, count, v)
+        LogDebug("glUniform3iv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform3i(GLint location, GLint x, GLint y, GLint z) const {
-    glUniform3i(location, x, y, z);
+Uniform3i(ConstStringRefLabel, GLint location, GLint x, GLint y, GLint z) const {
+//    glUniform3i(location, x, y, z);
     if (enableVerboseOutput) {
-        LogDebug("glUniform3i(location = %d, x = %d, y = %d, z = %d)", location, x, y, z)
+        LogDebug("glUniform3i(%s: %d, x = %d, y = %d, z = %d)", label.c_str(), location, x, y, z);
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform3fv(GLint location, GLsizei count, const GLfloat *v) const {
-    glUniform3fv(location, count, v);
+Uniform3fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const {
+//    glUniform3fv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("glUniform3fv(location = %d, count = %d, v = %p)", location, count, v)
+        LogDebug("glUniform3fv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform3f(GLint location, GLfloat x, GLfloat y, GLfloat z) const {
-    glUniform3f(location, x, y, z);
+Uniform3f(ConstStringRefLabel, GLint location, GLfloat x, GLfloat y, GLfloat z) const {
+//    glUniform3f(location, x, y, z);
     if (enableVerboseOutput) {
-        LogDebug("glUniform3f(location = %d, x = %f, y = %f, z = %f)", location, x, y, z)
+        LogDebug("glUniform3f(%s: %d, x = %f, y = %f, z = %f)", label.c_str(), location, x, y, z)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform2iv(GLint location, GLsizei count, const GLint *v) const {
-    glUniform2iv(location, count, v);
+Uniform2iv(ConstStringRefLabel, GLint location, GLsizei count, const GLint *v) const {
+//    glUniform2iv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("glUniform2iv(location = %d, count = %d, v = %p)", location, count, v)
+        LogDebug("glUniform2iv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform2i(GLint location, GLint x, GLint y) const {
-    glUniform2i(location, x, y);
+Uniform2i(ConstStringRefLabel, GLint location, GLint x, GLint y) const {
+//    glUniform2i(location, x, y);
     if (enableVerboseOutput) {
-        LogDebug("glUniform2i(location = %d, x = %d, y = %d)", location, x, y)
+        LogDebug("glUniform2i(%s: %d, x = %d, y = %d)", label.c_str(), location, x, y);
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform2fv(GLint location, GLsizei count, const GLfloat *v) const {
-    glUniform2fv(location, count, v);
+Uniform2fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const {
+//    glUniform2fv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("glUniform2fv(location = %d, count = %d, v = %p)", location, count, v)
+        LogDebug("glUniform2fv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform2f(GLint location, GLfloat x, GLfloat y) const {
-    glUniform2f(location, x, y);
+Uniform2f(ConstStringRefLabel, GLint location, GLfloat x, GLfloat y) const {
+//    glUniform2f(location, x, y);
     if (enableVerboseOutput) {
-        LogDebug("glUniform2f(location = %d, x = %f, y = %f)", location, x, y)
+        LogDebug("glUniform2f(%s: %d, x = %f, y = %f)", label.c_str(), location, x, y)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
 Uniform1iv(const string &label, GLint location, GLsizei count, const GLint *v) const {
-    glUniform1iv(location, count, v);
+//    glUniform1iv(location, count, v);
     if (enableVerboseOutput) {
         LogDebug("glUniform1iv(%s: %d, %d)", label.c_str(), location, count, v);
     }
@@ -1681,28 +1683,28 @@ Uniform1iv(const string &label, GLint location, GLsizei count, const GLint *v) c
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform1i(const string &label, GLint location, GLint value) const {
-    glUniform1i(location, value);
+Uniform1i(ConstStringRefLabel, GLint location, GLint value) const {
+//    glUniform1i(location, value);
     if (enableVerboseOutput) {
-        LogDebug("glUniform1i(%s, %d)", label.c_str(), value);
+        LogDebug("glUniform1i(%s: %d, %d)", label.c_str(), location, value);
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform1fv(GLint location, GLsizei count, const GLfloat *v) const {
-    glUniform1fv(location, count, v);
+Uniform1fv(ConstStringRefLabel, GLint location, GLsizei count, const GLfloat *v) const {
+//    glUniform1fv(location, count, v);
     if (enableVerboseOutput) {
-        LogDebug("glUniform1fv(location = %d, count = %d, v = %p)", location, count, v)
+        LogDebug("glUniform1fv(%s: %d, count = %d, v = %p)", label.c_str(), location, count, v)
     }
     return *this;
 }
 
 const LFXOpenGLES &LFXOpenGLES::
-Uniform1f(GLint location, GLfloat x) const {
-    glUniform1f(location, x);
+Uniform1f(ConstStringRefLabel, GLint location, GLfloat x) const {
+//    glUniform1f(location, x);
     if (enableVerboseOutput) {
-        LogDebug("glUniform1f(location = %d, x = %f)", location, x)
+        LogDebug("glUniform1f(%s: %d, %f)", label.c_str(), location, x)
     }
     return *this;
 }

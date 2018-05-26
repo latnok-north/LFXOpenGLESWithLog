@@ -48,11 +48,20 @@
           <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/WrapperDemo/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="987">
-                  <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
+                <state relative-caret-position="1082">
+                  <caret line="92" column="62" lean-forward="true" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
                   <folding>
                     <element signature="e#134#153#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="LFXOpenGLES.hpp" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/../LFXOpenGLESWithLog/LFXOpenGLES.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="450">
+                  <caret line="400" lean-forward="true" selection-start-line="400" selection-end-line="400" />
                 </state>
               </provider>
             </entry>
@@ -64,8 +73,17 @@
           <file leaf-file-name="LFXOpenGLES.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/../LFXOpenGLESWithLog/LFXOpenGLES.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="763">
-                  <caret line="1510" column="70" selection-start-line="1510" selection-start-column="70" selection-end-line="1510" selection-end-column="70" />
+                <state relative-caret-position="216">
+                  <caret line="1518" column="30" lean-forward="true" selection-start-line="1518" selection-start-column="30" selection-end-line="1518" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="gl.h" pinned="false" current-in-tab="false">
+            <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="873">
+                  <caret line="2968" column="32" lean-forward="true" selection-start-line="2968" selection-start-column="12" selection-end-line="2968" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
@@ -106,11 +124,16 @@
       <find>glVertexAttrib4f</find>
       <find>glVertexAttrib3f</find>
       <find>VertexAttrib2fv</find>
+      <find>0f</find>
+      <find>glUniform4f</find>
+      <find>toLFXOpenGLESLiteral(LFXOpenGLESBoolean, transpose)</find>
     </findStrings>
     <replaceStrings>
       <replace>LogDebug</replace>
       <replace>(</replace>
       <replace>&quot;</replace>
+      <replace>0.f</replace>
+      <replace>toLFXOpenGLESLiteral(LFXOpenGLESBoolean, transpose).c_str()</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -118,8 +141,9 @@
       <list>
         <option value="$USER_HOME$/effect_sdk/render_core/render_core/dev/src/new_interface/GraphicsLibraryInterface/OpenGLES/LFXOpenGLES.hpp" />
         <option value="$USER_HOME$/effect_sdk/render_core/render_core/dev/src/new_interface/GraphicsLibraryInterface/OpenGLES/LFXOpenGLES.cpp" />
-        <option value="$PROJECT_DIR$/WrapperDemo/main.cpp" />
+        <option value="$PROJECT_DIR$/../LFXOpenGLESWithLog/LFXOpenGLES.hpp" />
         <option value="$PROJECT_DIR$/../LFXOpenGLESWithLog/LFXOpenGLES.cpp" />
+        <option value="$PROJECT_DIR$/WrapperDemo/main.cpp" />
       </list>
     </option>
   </component>
@@ -164,7 +188,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="gl.h&#9;FILE&#9;file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h&#10;main.cpp&#9;FILE&#9;file:///Users/michael/Developer/MetalLearning/WrapperDemo/WrapperDemo/main.cpp&#10;LFXOpenGLES.hpp&#9;FILE&#9;file:///Users/michael/Developer/effect_sdk/render_core/render_core/dev/src/new_interface/GraphicsLibraryInterface/OpenGLES/LFXOpenGLES.hpp" />
+    <property name="SearchEverywhereHistoryKey" value="mai&#9;FILE&#9;file:///Users/michael/LFXOpenGLESWithLog/WrapperDemo/WrapperDemo/main.cpp&#10;github&#9;ACTION&#9;Github.Share&#10;gl.h&#9;FILE&#9;file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h&#10;main.cpp&#9;FILE&#9;file:///Users/michael/Developer/MetalLearning/WrapperDemo/WrapperDemo/main.cpp&#10;LFXOpenGLES.hpp&#9;FILE&#9;file:///Users/michael/Developer/effect_sdk/render_core/render_core/dev/src/new_interface/GraphicsLibraryInterface/OpenGLES/LFXOpenGLES.hpp" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -193,12 +217,12 @@
       <option name="presentableId" value="Default" />
       <updated>1527247406491</updated>
       <workItem from="1527247408388" duration="9532000" />
-      <workItem from="1527315957036" duration="1511000" />
+      <workItem from="1527315957036" duration="3837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11043000" />
+    <option name="totallyTimeSpent" value="13369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1417" extended-state="0" />
@@ -217,7 +241,7 @@
       <window_info id="Compare Directories" order="2" />
       <window_info anchor="bottom" id="Tail" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5151515" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -269,23 +293,34 @@
     </entry>
     <entry file="file://$USER_HOME$/effect_sdk/render_core/render_core/dev/src/new_interface/GraphicsLibraryInterface/OpenGLES/LFXOpenGLES.hpp" />
     <entry file="file://$USER_HOME$/effect_sdk/render_core/render_core/dev/src/new_interface/GraphicsLibraryInterface/OpenGLES/LFXOpenGLES.cpp" />
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WrapperDemo/main.cpp">
+    <entry file="file://$PROJECT_DIR$/../LFXOpenGLESWithLog/LFXOpenGLES.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
-          <folding>
-            <element signature="e#134#153#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="450">
+          <caret line="400" lean-forward="true" selection-start-line="400" selection-end-line="400" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="873">
+          <caret line="2968" column="32" lean-forward="true" selection-start-line="2968" selection-start-column="12" selection-end-line="2968" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../LFXOpenGLESWithLog/LFXOpenGLES.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="1510" column="70" selection-start-line="1510" selection-start-column="70" selection-end-line="1510" selection-end-column="70" />
+        <state relative-caret-position="216">
+          <caret line="1518" column="30" lean-forward="true" selection-start-line="1518" selection-start-column="30" selection-end-line="1518" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WrapperDemo/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1082">
+          <caret line="92" column="62" lean-forward="true" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
+          <folding>
+            <element signature="e#134#153#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
