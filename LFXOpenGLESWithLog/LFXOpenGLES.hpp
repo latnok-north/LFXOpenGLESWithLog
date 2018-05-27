@@ -106,7 +106,8 @@ enum GLESMacro {
     StencilFunction,
     StencilOp,
     StringName,
-    FramebufferObject
+    FramebufferObject,
+    LFXOpenGLESBindTarget
 };
 //
 //class Vector3 {
@@ -270,7 +271,7 @@ public:
     GetRenderbufferParameteriv(ConstStringRefLabel, GLenum target, GLenum pname, GLint *params) const;
 
     const LFXOpenGLES &
-    IsRenderbuffer(ConstStringRefLabel, GLuint renderbuffer) const;
+    IsRenderbuffer(ConstStringRefLabel, GLuint renderbuffer, GLboolean isRenderBuffer) const;
 
 #pragma mark Framebuffer
 
